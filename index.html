@@ -367,6 +367,114 @@
       font-family: 'Cinzel', serif; font-size: .57rem;
       letter-spacing: .3em; color: var(--gold);
     }
+
+    /* ── Blessing / QR section ── */
+    .blessing-section {
+      position: relative; z-index: 10;
+      max-width: 680px; margin: 0 auto;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .blessing-eyebrow {
+      display: flex; align-items: center;
+      justify-content: center; gap: 14px;
+      margin-bottom: 1.2rem;
+    }
+    .blessing-eyebrow span { font-size: 1.5rem; }
+    .blessing-rule {
+      flex: 1; max-width: 100px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--red-mid));
+    }
+    .blessing-eyebrow .blessing-rule:last-child {
+      background: linear-gradient(to left, transparent, var(--red-mid));
+    }
+    .blessing-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 500; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--red-deep);
+      margin-bottom: 1.4rem;
+    }
+    .blessing-verse {
+      font-style: italic;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      color: var(--text-mid); line-height: 1.85;
+      letter-spacing: .03em; margin-bottom: 1.2rem;
+    }
+    .blessing-body {
+      font-size: clamp(.9rem, 2vw, 1.02rem);
+      color: var(--text-muted); line-height: 1.9;
+      letter-spacing: .03em; margin-bottom: 2rem;
+    }
+
+    /* QR card */
+    .qr-card {
+      display: inline-block;
+      background: linear-gradient(145deg, #fff8f0, #fff3f3);
+      border: 1px solid rgba(192, 57, 43, .18);
+      border-radius: 12px;
+      padding: 2px;
+      box-shadow:
+        0 0 0 4px rgba(192,57,43,.06),
+        0 12px 40px rgba(150,50,50,.1);
+      margin-bottom: 1.8rem;
+    }
+    .qr-inner {
+      padding: 1.6rem 2rem 1.4rem;
+      border-radius: 10px;
+      border: 1px dashed rgba(192,57,43,.2);
+    }
+    .qr-badge-top {
+      font-family: 'Cinzel', serif;
+      font-size: .6rem; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--red-mid);
+      margin-bottom: .9rem;
+    }
+    .qr-frame {
+      width: 190px; height: 190px;
+      margin: 0 auto .9rem;
+      border: 1px solid rgba(192,57,43,.15);
+      border-radius: 6px; overflow: hidden;
+      position: relative; background: #fff;
+    }
+    .qr-frame img {
+      width: 100%; height: 100%; object-fit: contain; display: block;
+    }
+    .qr-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 8px;
+      background: linear-gradient(145deg, #fff5f0, #fff0f0);
+    }
+    .qr-placeholder-icon { font-size: 2.2rem; opacity: .35; }
+    .qr-placeholder-hint {
+      font-style: italic; font-size: .7rem;
+      color: var(--text-muted); line-height: 1.6; text-align: center;
+    }
+    .qr-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      letter-spacing: .1em; color: var(--text-mid);
+      margin-bottom: .25rem;
+    }
+    .qr-hint {
+      font-family: 'Cinzel', serif;
+      font-size: .58rem; letter-spacing: .22em;
+      text-transform: uppercase; color: rgba(192,57,43,.55);
+    }
+
+    .blessing-close {
+      font-size: clamp(.88rem, 2vw, 1rem);
+      color: var(--text-muted); letter-spacing: .04em;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 480px) {
+      .blessing-section { padding: 2.5rem 1.1rem 2rem; }
+      .qr-inner { padding: 1.3rem 1.4rem 1.1rem; }
+      .qr-frame { width: 160px; height: 160px; }
+    }
   </style>
 </head>
 <body>
@@ -436,6 +544,50 @@
 </main>
 
 <div class="garland" style="margin-top:2.2rem">🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿</div>
+
+
+<!-- DuitNow Blessing -->
+<section class="blessing-section">
+
+  <div class="blessing-eyebrow">
+    <div class="blessing-rule"></div>
+    <span>🧧</span>
+    <div class="blessing-rule"></div>
+  </div>
+
+  <h3 class="blessing-title">A Gesture of Blessing</h3>
+
+  <p class="blessing-verse">
+    Should you feel moved to honour us with this timeless gesture of goodwill,
+    we receive your kindness with the utmost gratitude and joy.
+    Every blessing, however humble, is cherished deeply and held close
+    as we begin this new chapter of our lives together.
+  </p>
+
+  <div class="qr-card">
+    <div class="qr-inner">
+      <div class="qr-badge-top">DuitNow</div>
+      <!-- Save your QR code image as "QR.png" in the same folder -->
+      <div class="qr-frame">
+        <img src="/edcatwedding2026/images/QR.png" alt="DuitNow QR Code"
+             onerror="this.style.display='none';document.getElementById('qr-placeholder').style.display='flex';">
+        <div id="qr-placeholder" class="qr-placeholder">
+          <div class="qr-placeholder-icon">📱</div>
+          <div class="qr-placeholder-hint">Save your DuitNow QR<br>as <em>duitnow-qr.png</em><br>in this folder</div>
+        </div>
+      </div>
+      <p class="qr-name">Edmund &amp; Catherine</p>
+      <p class="qr-hint">Scan to send your blessings</p>
+    </div>
+  </div>
+
+  <p class="blessing-close">
+    <em>Your presence at our celebration is already the greatest gift of all.</em>
+  </p>
+
+</section>
+
+<div class="garland" style="margin:1rem 0">🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿 ❀ 🌿</div>
 
 <footer>
   <span class="footer-hearts">♡ ♡ ♡</span>
